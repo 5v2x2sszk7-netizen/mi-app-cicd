@@ -10,7 +10,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/5v2x2sszk7-netizen/mi-app-cicd.git'
+                git branch: 'main', url: 'https://github.com/5v2x2sszk7-netizen/mi-app-cicd.git'
             }
         }
 
@@ -50,24 +50,3 @@ pipeline {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
