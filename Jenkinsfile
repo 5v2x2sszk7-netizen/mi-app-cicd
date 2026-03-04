@@ -7,6 +7,7 @@ pipeline {
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 git 'https://github.com/5v2x2sszk7-netizen/mi-app-cicd.git'
@@ -23,6 +24,11 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
         }
 
         stage('Package') {
@@ -37,7 +43,16 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
 }
+
+
+
 
 
 
